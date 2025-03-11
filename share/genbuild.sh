@@ -48,6 +48,7 @@ if [ "$INFO" != "$NEWINFO" ]; then
 fi
 
 # rename output binary
-sed -i 's/$(AM_V_CXXLD)$(dogecoind_LINK) $(dogecoind_OBJECTS) $(dogecoind_LDADD) $(LIBS)/$(AM_V_CXXLD)$(dogecoind_LINK) $(dogecoind_OBJECTS) $(dogecoind_LDADD) $(LIBS)\n\tcp -f dogecoind luckycoind/g' src/Makefile.in
-sed -i 's/$(AM_V_CXXLD)$(dogecoind_LINK) $(dogecoind_OBJECTS) $(dogecoind_LDADD) $(LIBS)/$(AM_V_CXXLD)$(dogecoind_LINK) $(dogecoind_OBJECTS) $(dogecoind_LDADD) $(LIBS)\n\tcp -f dogecoind luckycoind/g' src/Makefile
+if ! grep "luckycoin" src/Makefile.in ; then sed -i 's/$(AM_V_CXXLD)$(dogecoind_LINK) $(dogecoind_OBJECTS) $(dogecoind_LDADD) $(LIBS)/$(AM_V_CXXLD)$(dogecoind_LINK) $(dogecoind_OBJECTS) $(dogecoind_LDADD) $(LIBS)\n\t@cp -f dogecoind luckycoind/g' src/Makefile.in ; fi
+if ! grep "luckycoin" src/Makefile.in ; then sed -i 's/$(AM_V_CXXLD)$(dogecoind_LINK) $(dogecoind_OBJECTS) $(dogecoind_LDADD) $(LIBS)/$(AM_V_CXXLD)$(dogecoind_LINK) $(dogecoind_OBJECTS) $(dogecoind_LDADD) $(LIBS)\n\t@cp -f dogecoind luckycoind/g' src/Makefile ; fi
+
 
