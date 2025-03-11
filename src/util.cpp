@@ -103,8 +103,8 @@ namespace boost {
 
 using namespace std;
 
-const char * const BITCOIN_CONF_FILENAME = "dogecoin.conf";
-const char * const BITCOIN_PID_FILENAME = "dogecoind.pid";
+const char * const BITCOIN_CONF_FILENAME = "luckycoin.conf";
+const char * const BITCOIN_PID_FILENAME = "luckycoind.pid";
 
 CCriticalSection cs_args;
 map<string, string> mapArgs;
@@ -488,7 +488,7 @@ boost::filesystem::path GetDefaultDataDir()
     // Unix: ~/.bitcoin
 #ifdef WIN32
     // Windows
-    return GetSpecialFolderPath(CSIDL_APPDATA) / "Dogecoin";
+    return GetSpecialFolderPath(CSIDL_APPDATA) / "Luckycoin";
 #else
     fs::path pathRet;
     char* pszHome = getenv("HOME");
@@ -501,7 +501,7 @@ boost::filesystem::path GetDefaultDataDir()
     return pathRet / "Library/Application Support/Dogecoin";
 #else
     // Unix
-    return pathRet / ".dogecoin";
+    return pathRet / ".luckycoin";
 #endif
 #endif
 }
