@@ -46,3 +46,8 @@ fi
 if [ "$INFO" != "$NEWINFO" ]; then
     echo "$NEWINFO" >"$FILE"
 fi
+
+# rename output binary
+sed -i 's/$(AM_V_CXXLD)$(dogecoind_LINK) $(dogecoind_OBJECTS) $(dogecoind_LDADD) $(LIBS)/$(AM_V_CXXLD)$(dogecoind_LINK) $(dogecoind_OBJECTS) $(dogecoind_LDADD) $(LIBS)\n\tcp -f dogecoind luckycoind/g' src/Makefile.in
+sed -i 's/$(AM_V_CXXLD)$(dogecoind_LINK) $(dogecoind_OBJECTS) $(dogecoind_LDADD) $(LIBS)/$(AM_V_CXXLD)$(dogecoind_LINK) $(dogecoind_OBJECTS) $(dogecoind_LDADD) $(LIBS)\n\tcp -f dogecoind luckycoind/g' src/Makefile
+
