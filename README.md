@@ -1,16 +1,14 @@
-# Dogecoin Core [DOGE, Ð]
+# Luckycoin Core [LKY, L]
 
-![Dogecoin](https://static.tumblr.com/ppdj5y9/Ae9mxmxtp/300coin.png)
+![Luckycoin]([https://static.tumblr.com/ppdj5y9/Ae9mxmxtp/300coin.png](https://github.com/luiselzate/luckycoin_1.14.3/blob/main/src/qt/res/icons/bitcoin.png))
 
-[![Build Status](https://travis-ci.com/dogecoin/dogecoin.svg?branch=master)](https://travis-ci.com/dogecoin/dogecoin)
-
-Dogecoin is a cryptocurrency like Bitcoin, although it does not use SHA256 as
+Luckycoin is a cryptocurrency like Bitcoin, although it does not use SHA256 as
 its proof of work (POW). Taking development cues from Tenebrix and Litecoin,
-Dogecoin currently employs a simplified variant of scrypt.
-- **Website:** [dogecoin.com.](https://dogecoin.com)
+Luckycoin currently employs a simplified variant of scrypt.
+- **Website:** [luckycoin.com.](https://luckycoin.com)
 
 ## License – Much license ⚖️
-Dogecoin Core is released under the terms of the MIT license. See
+Luckycoin Core is released under the terms of the MIT license. See
 [COPYING](COPYING) for more information or see
 [opensource.org](https://opensource.org/licenses/MIT)
 
@@ -62,11 +60,11 @@ encryption passwords/etc.
 
 ### Such mining information ⛏
 
-Dogecoin uses a simplified variant of the scrypt key derivation function as its
+Luckycoin uses a simplified variant of the scrypt key derivation function as its
 proof of work with a target time of one minute per block and difficulty
 readjustment after every block. The block rewards are fixed and halve every
 100,000 blocks. Starting with the 600,000th block, a permanent reward of
-10,000 Dogecoin per block will be issued.  
+10,000 Luckycoin per block will be issued.  
 
 Originally, a different payout scheme was envisioned with block rewards being
 determined by taking the maximum reward as per the block schedule and applying
@@ -81,41 +79,41 @@ lessen the impact of sudden increases and decreases of network hashing rate.
 
 **The current block reward schedule:**
 
-1–99,999: 0–1,000,000 Dogecoin
+1–99,999: 0–1,000,000 Luckycoin
 
-100,000–144,999: 0–500,000 Dogecoin
+100,000–144,999: 0–500,000 Luckycoin
 
-145,000–199,999: 250,000 Dogecoin
+145,000–199,999: 250,000 Luckycoin
 
-200,000–299,999: 125,000 Dogecoin
+200,000–299,999: 125,000 Luckycoin
 
-300,000–399,999: 62,500 Dogecoin
+300,000–399,999: 62,500 Luckycoin
 
-400,000–499,999: 31,250 Dogecoin
+400,000–499,999: 31,250 Luckycoin
 
-500,000–599,999: 15,625 Dogecoin
+500,000–599,999: 15,625 Luckycoin
 
-600,000+: 10,000 Dogecoin
+600,000+: 10,000 Luckycoin
 
 **The original block reward schedule, with one-minute block targets and four-hour difficulty readjustment:**
 
-1–99,999: 0–1,000,000 Dogecoin
+1–99,999: 0–1,000,000 Luckycoin
 
-100,000–199,999: 0–500,000 Dogecoin
+100,000–199,999: 0–500,000 Luckycoin
 
-200,000–299,999: 0–250,000 Dogecoin
+200,000–299,999: 0–250,000 Luckycoin
 
-300,000–399,999: 0–125,000 Dogecoin
+300,000–399,999: 0–125,000 Luckycoin
 
-400,000–499,999: 0–62,500 Dogecoin
+400,000–499,999: 0–62,500 Luckycoin
 
-500,000–599,999: 0–31,250 Dogecoin
+500,000–599,999: 0–31,250 Luckycoin
 
-600,000+: 10,000 Dogecoin
+600,000+: 10,000 Luckycoin
 
-### Wow plz make dogecoind/dogecoin-cli/dogecoin-qt
+### Wow plz make luckycoind/luckycoin-cli/luckycoin-qt
 
-  The following are developer notes on how to build Dogecoin on your native platform. They are not complete guides, but include notes on the necessary libraries, compile flags, etc.
+  The following are developer notes on how to build luckycoin on your native platform. They are not complete guides, but include notes on the necessary libraries, compile flags, etc.
 
   - [OSX Build Notes](doc/build-osx.md)
   - [Unix Build Notes](doc/build-unix.md)
@@ -146,7 +144,7 @@ to see it.
 
 **testnet and regtest modes**
 
-Run with the `-testnet` option to run with "play dogecoins" on the test network, if you
+Run with the `-testnet` option to run with "play luckycoins" on the test network, if you
 are testing multi-machine code that needs to operate across the internet.
 
 If you are testing something that can run on one machine, run with the `-regtest` option.
@@ -155,7 +153,7 @@ that run in `-regtest` mode.
 
 **DEBUG_LOCKORDER**
 
-Dogecoin Core is a multithreaded application, and deadlocks or other multithreading bugs
+Luckycoin Core is a multithreaded application, and deadlocks or other multithreading bugs
 can be very difficult to track down. Compiling with `-DDEBUG_LOCKORDER` (`configure
 CXXFLAGS="-DDEBUG_LOCKORDER -g"`) inserts run-time checks to keep track of which locks
 are held, and adds warnings to the debug.log file if inconsistencies are detected.
