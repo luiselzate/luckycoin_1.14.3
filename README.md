@@ -1,6 +1,6 @@
 # Luckycoin Core [LKY, L]
 
-![Luckycoin](https://github.com/luiselzate/luckycoin_1.14.3/blob/main/src/qt/res/icons/bitcoin.png?raw=true)
+![Luckycoin](https://github.com/luiselzate/luckycoin_1.14.3/blob/main/src/qt/res/icons/wallet_bgcoin.png?raw=true)
 
 Luckycoin is a cryptocurrency like Bitcoin, although it does not use SHA256 as
 its proof of work (POW). Taking development cues from Tenebrix and Litecoin,
