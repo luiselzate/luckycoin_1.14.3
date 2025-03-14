@@ -7,7 +7,7 @@ its proof of work (POW). Taking development cues from Tenebrix and Litecoin,
 Luckycoin currently employs a simplified variant of scrypt.
 - **Website:** [luckycoinblockexplorer.com.](https://luckycoinblockexplorer.com/)
 
-## License – license ⚖️
+## License
 Luckycoin Core is released under the terms of the MIT license. See
 [COPYING](COPYING) for more information or see
 [opensource.org](https://opensource.org/licenses/MIT)
