@@ -1,5 +1,5 @@
-Building Dogecoin
+Building Luckycoin
 ================
 
 See doc/build-*.md for instructions on building the various
-elements of the Dogecoin Core reference implementation of Dogecoin.
+elements of the Luckycoin Core reference implementation of Luckycoin.
