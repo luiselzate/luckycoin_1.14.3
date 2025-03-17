@@ -498,7 +498,7 @@ boost::filesystem::path GetDefaultDataDir()
         pathRet = fs::path(pszHome);
 #ifdef MAC_OSX
     // Mac
-    return pathRet / "Library/Application Support/Dogecoin";
+    return pathRet / "Library/Application Support/Luckycoin";
 #else
     // Unix
     return pathRet / ".luckycoin";
