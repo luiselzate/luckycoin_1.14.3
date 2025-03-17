@@ -398,8 +398,8 @@
         <translation>Orebalk</translation>
     </message>
     <message>
-        <source>Request payments (generates QR codes and dogecoin: URIs)</source>
-        <translation>Versoek betalings (genereer QR-kodes en dogecoin: URI's)</translation>
+        <source>Request payments (generates QR codes and luckycoin: URIs)</source>
+        <translation>Versoek betalings (genereer QR-kodes en luckycoin: URI's)</translation>
     </message>
     <message>
         <source>Show the list of used sending addresses and labels</source>
@@ -410,8 +410,8 @@
         <translation>Vertoon die lys van gebruikte ontvangers-adresse en etikette</translation>
     </message>
     <message>
-        <source>Open a dogecoin: URI or payment request</source>
-        <translation>Skep 'n dogecoin: URI of betalingsversoek</translation>
+        <source>Open a luckycoin: URI or payment request</source>
+        <translation>Skep 'n luckycoin: URI of betalingsversoek</translation>
     </message>
     <message>
         <source>Indexing blocks on disk...</source>
