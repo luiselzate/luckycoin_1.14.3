@@ -195,7 +195,7 @@ public:
         */
 
         // Luckycoin: Anything below 1 DOGE is always dust
-        return COIN;
+        //return COIN;
         return COIN/1000;
     }
 
