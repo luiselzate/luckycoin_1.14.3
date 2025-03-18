@@ -183,7 +183,7 @@ BitcoinGUI::BitcoinGUI(const PlatformStyle *_platformStyle, const NetworkStyle *
     QFont newFont("Comic Sans MS", 10);
 
     // Dogecoin: Set new application font
-    QApplication::setFont(newFont);
+    //QApplication::setFont(newFont);
 
     // Accept D&D of URIs
     setAcceptDrops(true);
