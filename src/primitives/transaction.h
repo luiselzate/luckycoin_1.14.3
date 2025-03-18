@@ -196,6 +196,7 @@ public:
 
         // Luckycoin: Anything below 1 DOGE is always dust
         return COIN;
+        return COIN/1000;
     }
 
     bool IsDust(const CFeeRate &minRelayTxFee) const
