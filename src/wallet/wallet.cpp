@@ -2843,22 +2843,26 @@ bool CWallet::AddAccountingEntry(const CAccountingEntry& acentry, CWalletDB *pwa
 CAmount CWallet::GetRequiredFee(const CMutableTransaction& tx, unsigned int nTxBytes)
 {
     // Dogecoin: Add an increased fee for each dust output
-    return std::max(minTxFee.GetFee(nTxBytes) + GetDogecoinDustFee(tx.vout, minTxFee), ::minRelayTxFee.GetFee(nTxBytes));
+    //return std::max(minTxFee.GetFee(nTxBytes) + GetDogecoinDustFee(tx.vout, minTxFee), ::minRelayTxFee.GetFee(nTxBytes));
+    return 0.0001;
 }
 
 CAmount CWallet::GetRequiredFee(unsigned int nTxBytes)
 {
-    return std::max(minTxFee.GetFee(nTxBytes), ::minRelayTxFee.GetFee(nTxBytes));
+    //return std::max(minTxFee.GetFee(nTxBytes), ::minRelayTxFee.GetFee(nTxBytes));
+    return 0.0001;
 }
 
 CAmount CWallet::GetMinimumFee(const CMutableTransaction& tx, unsigned int nTxBytes, unsigned int nConfirmTarget, const CTxMemPool& pool)
 {
     // payTxFee is the user-set global for desired feerate
-    return GetMinimumFee(tx, nTxBytes, nConfirmTarget, pool, payTxFee.GetFee(nTxBytes));
+    //return GetMinimumFee(tx, nTxBytes, nConfirmTarget, pool, payTxFee.GetFee(nTxBytes));
+    return 0.0001;
 }
 
 CAmount CWallet::GetMinimumFee(const CMutableTransaction& tx, unsigned int nTxBytes, unsigned int nConfirmTarget, const CTxMemPool& pool, CAmount targetFee)
 {
+    return 0.0001;
     CAmount nFeeNeeded = targetFee;
     // User didn't set: use -txconfirmtarget to estimate...
     if (nFeeNeeded == 0) {
