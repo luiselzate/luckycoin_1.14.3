@@ -28,7 +28,94 @@ bool AllowMinDifficultyForBlock(const CBlockIndex* pindexLast, const CBlockHeade
     // Allow for a minimum block time if the elapsed time > 2*nTargetSpacing
     return (pblock->GetBlockTime() > pindexLast->GetBlockTime() + params.nPowTargetSpacing*2);
 }
+unsigned int GetNextWorkRequired(const CBlockIndex* pindexLast, const CBlockHeader *pblock, const Consensus::Params& params)
+{
+	//unsigned int nProofOfWorkLimit = bnProofOfWorkLimit.GetCompact();
+	unsigned int nProofOfWorkLimit = UintToArith256(params.powLimit).GetCompact();
 
+    // Luckycoin difficulty adjustment protocol switch
+    //bool fNewDifficultyProtocol = (pindexLast->nHeight+1 >= 69360 || fTestNet);
+    bool fNewDifficultyProtocol = (pindexLast->nHeight+1 >= 69360 || false);
+
+    //int64 nTargetTimespanCurrent = fNewDifficultyProtocol ? nTargetTimespan : (nTargetTimespan*12);
+    //int64 nInterval = nTargetTimespanCurrent / nTargetSpacing;
+    //int64_t nTargetTimespanCurrent = fNewDifficultyProtocol ? nTargetTimespan : (nTargetTimespan*12);
+    int64_t nTargetTimespanCurrent = fNewDifficultyProtocol ? params.nPowTargetTimespan : (params.nPowTargetTimespan*12);
+	
+    //int64_t nInterval = nTargetTimespanCurrent / nTargetSpacing;
+    int64_t nInterval = nTargetTimespanCurrent / params.nPowTargetSpacing;
+	
+
+    // Only change once per interval
+    if ((pindexLast->nHeight+1) % nInterval != 0)
+    {
+
+        return pindexLast->nBits;
+    }
+
+    // Luckycoin: This fixes an issue where a 51% attack can change difficulty at will.
+    // Go back the full period unless it's the first retarget after genesis. Code courtesy of Art Forz
+    int blockstogoback = nInterval-1;
+    if ((pindexLast->nHeight+1) != nInterval)
+        blockstogoback = nInterval;
+
+    // Go back by what we want to be 14 days worth of blocks
+    const CBlockIndex* pindexFirst = pindexLast;
+    for (int i = 0; pindexFirst && i < blockstogoback; i++)
+        pindexFirst = pindexFirst->pprev;
+    assert(pindexFirst);
+
+    // Limit adjustment step
+    //int64 nActualTimespan = pindexLast->GetBlockTime() - pindexFirst->GetBlockTime();
+    int64_t nActualTimespan = pindexLast->GetBlockTime() - pindexFirst->GetBlockTime();
+    //printf(" nActualTimespan = %"PRI64d" before bounds\n", nActualTimespan);
+
+    //int64 nActualTimespanMin = fNewDifficultyProtocol ? (nTargetTimespanCurrent - nTargetTimespanCurrent/4) : (nTargetTimespanCurrent/4);
+    //int64 nActualTimespanMax = fNewDifficultyProtocol ? (nTargetTimespanCurrent + nTargetTimespanCurrent/4) : (nTargetTimespanCurrent*4);
+    int64_t nActualTimespanMin = fNewDifficultyProtocol ? (nTargetTimespanCurrent - nTargetTimespanCurrent/4) : (nTargetTimespanCurrent/4);
+    int64_t nActualTimespanMax = fNewDifficultyProtocol ? (nTargetTimespanCurrent + nTargetTimespanCurrent/4) : (nTargetTimespanCurrent*4);
+	
+	if(pindexLast->nHeight+1 > 10000)
+	{
+        if (nActualTimespan < nActualTimespanMin)
+            nActualTimespan = nActualTimespanMin;
+        if (nActualTimespan > nActualTimespanMax)
+            nActualTimespan = nActualTimespanMax;
+	}
+	else if(pindexLast->nHeight+1 > 5000)
+	{
+        if (nActualTimespan < nActualTimespanMin/2)
+            nActualTimespan = nActualTimespanMin/2;
+        if (nActualTimespan > nActualTimespanMax)
+            nActualTimespan = nActualTimespanMax;
+	}
+	else
+	{
+        if (nActualTimespan < nActualTimespanMin/4)
+            nActualTimespan = nActualTimespanMin/4;
+        if (nActualTimespan > nActualTimespanMax)
+            nActualTimespan = nActualTimespanMax;
+	}
+
+    // Retarget
+    //CBigNum bnNew;
+	arith_uint256 bnNew;
+    bnNew.SetCompact(pindexLast->nBits);
+    bnNew *= nActualTimespan;
+    bnNew /= nTargetTimespanCurrent;
+
+    //if (bnNew > bnProofOfWorkLimit) bnNew = bnProofOfWorkLimit;
+    if (bnNew > UintToArith256(params.powLimit)) bnNew = UintToArith256(params.powLimit);
+
+    /// debug print
+    //printf("GetNextWorkRequired RETARGET\n");
+    //printf("nTargetTimespan = %"PRI64d" nActualTimespan = %"PRI64d"\n", nTargetTimespanCurrent, nActualTimespan);
+    //printf("Before: %08x %s\n", pindexLast->nBits, CBigNum().SetCompact(pindexLast->nBits).getuint256().ToString().c_str());
+    //printf("After: %08x %s\n", bnNew.GetCompact(), bnNew.getuint256().ToString().c_str());
+
+    return bnNew.GetCompact();
+}
+/*
 unsigned int GetNextWorkRequired(const CBlockIndex* pindexLast, const CBlockHeader *pblock, const Consensus::Params& params)
 {
     unsigned int nProofOfWorkLimit = UintToArith256(params.powLimit).GetCompact();
@@ -86,7 +173,7 @@ unsigned int GetNextWorkRequired(const CBlockIndex* pindexLast, const CBlockHead
 
     return CalculateDogecoinNextWorkRequired(pindexLast, pindexFirst->GetBlockTime(), params);
 }
-
+*/
 unsigned int CalculateNextWorkRequired(const CBlockIndex* pindexLast, int64_t nFirstBlockTime, const Consensus::Params& params)
 {
     if (params.fPowNoRetargeting)
