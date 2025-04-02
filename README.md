@@ -2,7 +2,7 @@
 
 ![Luckycoin](https://github.com/luiselzate/luckycoin_1.14.3/blob/main/src/qt/res/icons/wallet_bgcoin.png?raw=true)
 
-Luckycoin is a cryptocurrency like Bitcoin, although it does not use SHA256 as
+Luckycoin is a cryptocurrency like Bitcoin, it does not use SHA256 as
 its proof of work (POW). Taking development cues from Tenebrix and Litecoin,
 Luckycoin currently employs a simplified variant of scrypt.
 - **Website:** [luckycoinblockexplorer.com.](https://luckycoinblockexplorer.com/)
