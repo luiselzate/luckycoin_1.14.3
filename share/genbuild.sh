@@ -50,19 +50,28 @@ fi
 
 if ! grep "mv -f dogecoind luckycoind" src/Makefile.in ; then 
 	echo "Rename dogecoind Makefile.in"
-	sed -i 's/$(AM_V_CXXLD)$(dogecoind_LINK) $(dogecoind_OBJECTS) $(dogecoind_LDADD) $(LIBS)/$(AM_V_CXXLD)$(dogecoind_LINK) $(dogecoind_OBJECTS) $(dogecoind_LDADD) $(LIBS)\n\t@mv -f dogecoind luckycoind/g' src/Makefile.in 
+	sed -i 's/$(AM_V_CXXLD)$(dogecoind_LINK) $(dogecoind_OBJECTS) $(dogecoind_LDADD) $(LIBS)/$(AM_V_CXXLD)$(dogecoind_LINK) $(dogecoind_OBJECTS) $(dogecoind_LDADD) $(LIBS)\n\t@mv -f dogecoind luckycoind | tee/g' src/Makefile.in 
 fi
 if ! grep "mv -f dogecoind luckycoind" src/Makefile ; then 
 	echo "Rename dogecoind Makefile"
-	sed -i 's/$(AM_V_CXXLD)$(dogecoind_LINK) $(dogecoind_OBJECTS) $(dogecoind_LDADD) $(LIBS)/$(AM_V_CXXLD)$(dogecoind_LINK) $(dogecoind_OBJECTS) $(dogecoind_LDADD) $(LIBS)\n\t@mv -f dogecoind luckycoind/g' src/Makefile 
+	sed -i 's/$(AM_V_CXXLD)$(dogecoind_LINK) $(dogecoind_OBJECTS) $(dogecoind_LDADD) $(LIBS)/$(AM_V_CXXLD)$(dogecoind_LINK) $(dogecoind_OBJECTS) $(dogecoind_LDADD) $(LIBS)\n\t@mv -f dogecoind luckycoind | tee/g' src/Makefile 
 fi
 
 
 if ! grep "mv -f dogecoin-cli luckycoin-cli" src/Makefile.in ; then 
 	echo "Rename dogecoin-cli Makefile.in"
-	sed -i 's/$(AM_V_CXXLD)$(dogecoin_cli_LINK) $(dogecoin_cli_OBJECTS) $(dogecoin_cli_LDADD) $(LIBS)/$(AM_V_CXXLD)$(dogecoin_cli_LINK) $(dogecoin_cli_OBJECTS) $(dogecoin_cli_LDADD) $(LIBS)\n\t@mv -f dogecoin-cli luckycoin-cli/g' src/Makefile.in 
+	sed -i 's/$(AM_V_CXXLD)$(dogecoin_cli_LINK) $(dogecoin_cli_OBJECTS) $(dogecoin_cli_LDADD) $(LIBS)/$(AM_V_CXXLD)$(dogecoin_cli_LINK) $(dogecoin_cli_OBJECTS) $(dogecoin_cli_LDADD) $(LIBS)\n\t@mv -f dogecoin-cli luckycoin-cli | tee/g' src/Makefile.in 
 fi
 if ! grep "mv -f dogecoin-cli luckycoin-cli" src/Makefile ; then 
 	echo "Rename dogecoin-cli Makefile"
-	sed -i 's/$(AM_V_CXXLD)$(dogecoin_cli_LINK) $(dogecoin_cli_OBJECTS) $(dogecoin_cli_LDADD) $(LIBS)/$(AM_V_CXXLD)$(dogecoin_cli_LINK) $(dogecoin_cli_OBJECTS) $(dogecoin_cli_LDADD) $(LIBS)\n\t@mv -f dogecoin-cli luckycoin-cli/g' src/Makefile 
+	sed -i 's/$(AM_V_CXXLD)$(dogecoin_cli_LINK) $(dogecoin_cli_OBJECTS) $(dogecoin_cli_LDADD) $(LIBS)/$(AM_V_CXXLD)$(dogecoin_cli_LINK) $(dogecoin_cli_OBJECTS) $(dogecoin_cli_LDADD) $(LIBS)\n\t@mv -f dogecoin-cli luckycoin-cli | tee/g' src/Makefile 
+fi
+
+if ! grep "mv -f qt\/dogecoin-qt.exe qt\/luckycoin-qt.exe" src/Makefile.in ; then 
+	echo "Rename dogecoin-qt Makefile.in"
+	sed -i 's/$(AM_V_OBJCXXLD)$(qt_dogecoin_qt_LINK) $(qt_dogecoin_qt_OBJECTS) $(qt_dogecoin_qt_LDADD) $(LIBS)/$(AM_V_OBJCXXLD)$(qt_dogecoin_qt_LINK) $(qt_dogecoin_qt_OBJECTS) $(qt_dogecoin_qt_LDADD) $(LIBS)\n\t@mv -f qt\/dogecoin-qt.exe qt\/luckycoin-qt.exe | tee/g' src/Makefile.in 
+fi
+if ! grep "mv -f qt\/dogecoin-qt.exe qt\/luckycoin-qt.exe" src/Makefile ; then 
+	echo "Rename dogecoin-qt Makefile"
+	sed -i 's/$(AM_V_OBJCXXLD)$(qt_dogecoin_qt_LINK) $(qt_dogecoin_qt_OBJECTS) $(qt_dogecoin_qt_LDADD) $(LIBS)/$(AM_V_OBJCXXLD)$(qt_dogecoin_qt_LINK) $(qt_dogecoin_qt_OBJECTS) $(qt_dogecoin_qt_LDADD) $(LIBS)\n\t@mv -f qt\/dogecoin-qt.exe qt\/luckycoin-qt.exe | tee/g' src/Makefile 
 fi
