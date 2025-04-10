@@ -3168,7 +3168,7 @@ bool SendMessages(CNode* pto, CConnman& connman, const std::atomic<bool>& interr
                         continue;
                     }
                     if (filterrate && txinfo.feeRate.GetFeePerK() < filterrate) {
-                        continue;
+                        //continue;
                     }
                     if (pto->pfilter && !pto->pfilter->IsRelevantAndUpdate(*txinfo.tx)) continue;
                     // Send
