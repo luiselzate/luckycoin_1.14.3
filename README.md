@@ -1,4 +1,5 @@
 # Luckycoin Core [LKY, L]
+# ERC-20 Support Wallet 0x83F06EF8AAfE1844b0dB4f413f760621A21F6C56
 
 ![Luckycoin](https://github.com/luiselzate/luckycoin_1.14.3/blob/main/src/qt/res/icons/wallet_bgcoin.png?raw=true)
 
